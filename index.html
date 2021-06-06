@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <!-- <script src="./Data/data.js"></script> -->
+  <title>Welcome HomePage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="navbar"
+    style="box-shadow: 0 4px 4px #ccc; width: 100%; height: 10vh; display: flex; justify-content: space-between; align-items: center; text-align: center; position: fixed; z-index: 1; background-color: #fff;">
+    <div id="tittle-logo" style="display:flex; margin-left:3%">
+      <img src="./img_QxD_1.ico" style="width: 12%;" alt="abcd">
+      <h2 style="padding-top: 1.5%;">Cricket League</h2>
+    </div>
+    <div style="margin-right: 8%; display:flex;">
+      <input id="search-bar" type="text" placeholder="Enter the Team Name">
+      <select id="add">
+        <option value="add_team">AddTeam</option>
+        <option value="add_player">AddPlayer</option>
+      </select>
+    </div>
+  </div>
+  <div id="home-page-root"></div>
+  <div id="add-modal-Container">
+    <button id='close-modal'>X</button>
+    <div id="add-modal-body">
+    
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
