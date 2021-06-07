@@ -1,4 +1,4 @@
-var data_2010 = [
+var initial_data = [
     {
         "player_name": "MJ Clarke",
         "role": "batsman",
@@ -513,12 +513,13 @@ var data_2010 = [
         "uniqie_id": "63"
     },
 ]
+var data_2010=JSON.parse(localStorage.getItem('playersdata'))||initial_data;
 
-var team_data = [
+var initial_team_data = [
     {
         "Team_name": "Chennai Super Kings",
         "Icon": "https://www.pngitem.com/pimgs/m/7-75484_transparent-csk-logo-png-chennai-super-kings-png.png",
-        "no_of_players": "8",
+       
         "top_batsman": "Shakib Al Hasan",
         "top_bowler": "Mashrafe Mortaza",
         "match_won": "10"
@@ -526,7 +527,7 @@ var team_data = [
     {
         "Team_name": "Royal Challengers Banglore",
         "Icon": "https://www.kindpng.com/picc/m/775-7756179_rcblivescore-com-logo-royal-challengers-bangalore-hd-png.png",
-        "no_of_players": "8",
+       
         "top_batsman": "SK Warne",
         "top_bowler": "SR Watson",
         "match_won": "30"
@@ -534,7 +535,7 @@ var team_data = [
     {
         "Team_name": "Mumbai Indians",
         "Icon": "https://wallpapercave.com/wp/wp4011453.jpg",
-        "no_of_players": "8",
+       
         "top_batsman": "AC Thomas",
         "top_bowler": "JC Buttler",
         "match_won": "10"
@@ -542,7 +543,7 @@ var team_data = [
     {
         "Team_name": "Kolkata Knight Riders",
         "Icon": "https://yt3.ggpht.com/ytc/AAUvwnhs1H6bi9H5uPUhCzo6voQT3HwCmsLa9KgeTY87nw=s900-c-k-c0x00ffffff-no-rj",
-        "no_of_players": "8",
+       
         "top_batsman": "RN ten Doeschate",
         "top_bowler": "AF Milne",
         "match_won": "5"
@@ -550,7 +551,7 @@ var team_data = [
     {
         "Team_name": "Sunrisers Hyderabad",
         "Icon": "https://static.toiimg.com/thumb/msid-72902421,width-1200,height-900,resizemode-4/.jpg",
-        "no_of_players": "8",
+       
         "top_batsman": "CJ Anderson",
         "top_bowler": "JE Taylor",
         "match_won": "5"
@@ -558,7 +559,7 @@ var team_data = [
     {
         "Team_name": "Delhi Capitals",
         "Icon": "https://upload.wikimedia.org/wikipedia/en/f/f5/Delhi_Capitals_Logo.svg",
-        "no_of_players": "8",
+       
         "top_batsman": "Younis Khan",
         "top_bowler": "Umar Gul",
         "match_won": "2"
@@ -566,7 +567,7 @@ var team_data = [
     {
         "Team_name": "Rajasthan Royals",
         "Icon": "https://www.seekpng.com/png/detail/269-2699858_rajasthan-rajasthan-royals-logo-vector.png",
-        "no_of_players": "8",
+       
         "top_batsman": "BE Hendricks",
         "top_bowler": "SM Pollock",
         "match_won": "8"
@@ -574,12 +575,13 @@ var team_data = [
     {
         "Team_name": "Punjab Kings",
         "Icon": "https://www.searchpng.com/wp-content/uploads/2019/02/Kings-XI-Punjab-Logo-PNG-Image-715x715.png",
-        "no_of_players": "8",
+       
         "top_batsman": "KC Sangakkara",
         "top_bowler": "ST Jayasuriya",
         "match_won": "2"
     },
 ]
+var team_data=JSON.parse(localStorage.getItem('teamsdata'))||initial_team_data;
 
 var home = document.getElementById("home-page-root");
 home.style.display = "flex";
@@ -590,6 +592,7 @@ function HomePage(team_data, nob) {
         case "team":
             home.innerHTML = "";
             for (var i = 0; i < team_data.length; i++) {
+                var no_of_players=data_2010.filter((j)=>j.Team_name==team_data[i].Team_name)
                 var main_card = document.createElement("div");
                 main_card.style.borderRadius = "4%"
                 main_card.className = "card";
@@ -631,7 +634,7 @@ function HomePage(team_data, nob) {
                 Team_name.innerHTML = "Team Name : " + team_data[i].Team_name;
                 var Player_count = document.createElement("p");
                 Player_count.className = "card-text";
-                Player_count.innerHTML = "Total_No_Of_Palyers : " + team_data[i].no_of_players;
+                Player_count.innerHTML = "Total_No_Of_Players : " + no_of_players.length;
                 var top_batsman = document.createElement("p");
                 top_batsman.innerHTML = "Top Batsman : " + team_data[i].top_batsman;
                 var top_bowler = document.createElement("p");
@@ -777,6 +780,7 @@ function addModal(add_content) {
             var palyer_name_data = document.createElement("input")
             var palying_status_data = document.createElement("input")
             var unique_id_data = document.createElement("input")
+            unique_id_data.placeholder='id must be a Number'
             form_data.innerHTML = "";
             var label_team_name = document.createElement("label");
             label_team_name.innerHTML = "Team name"
@@ -839,8 +843,11 @@ function submitTeam(e) {
     newTeamData.top_batsman = form_data.childNodes[5].value;
     newTeamData.top_bowler = form_data.childNodes[7].value;
     newTeamData.match_won = form_data.childNodes[9].value;
-    var new_data = team_data.push(newTeamData);
-    HomePage(team_data, "team");
+    team_data.push(newTeamData);
+    localStorage.setItem("teamsdata",JSON.stringify(team_data))
+    location.reload();
+    alert('TEAM ADDED SUCESSFULL')
+    close();
 
 }
 
@@ -852,5 +859,10 @@ function submitPlayer(e) {
     newPlayerData.player_name = form_data.childNodes[5].value;
     newPlayerData.playing_status = form_data.childNodes[7].value;
     newPlayerData.uniqie_id = form_data.childNodes[9].value;
-    var player_new_data = data_2010.push(newPlayerData);
+   data_2010.push(newPlayerData);
+   console.log(data_2010)
+    localStorage.setItem("playersdata",JSON.stringify(data_2010))
+    location.reload();
+    alert("PLAYER ADDED SUCESSFULLY")
+    close();
 }
