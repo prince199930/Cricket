@@ -2,43 +2,35 @@ var player_data = JSON.parse(localStorage.getItem("player_data"));
 console.log(player_data)
 
 var img = "";
-if(player_data.Team_nameTeam_name=="Australia"){
-    img = "https://static.toiimg.com/thumb/msid-79167913,imgsize-996530,width-400,resizemode-4/79167913.jpg"
+if(player_data.Team_name=="Chennai Super Kings"){
+    img = "https://ss.thgim.com/cricket/ipl/article34359148.ece/alternates/FREE_380/Dhonijpg"
 }
-else if(player_data.Team_name=="Bangladesh"){
-    img = "https://ss.thgim.com/cricket/article27263506.ece/alternates/FREE_380/mashrafe-mortazajpg";
+else if(player_data.Team_name=="Royal Challengers Banglore"){
+    img = "https://www.mykhel.com/img/400x90/2019/09/kohlircb1-1568901575.jpg";
 }
-else if(player_data.Team_name=="England"){
-    img = "https://resources.pulse.icc-cricket.com/players/130x150/3318.png";
+else if(player_data.Team_name=="Mumbai Indians"){
+    img = "https://i.pinimg.com/originals/91/a9/1f/91a91fd1e9c592ab888ba2b62eec78e3.jpg";
 }
-else if(player_data.Team_name=="India"){
-    img = "https://i.ndtvimg.com/i/2017-09/mahendra-singh-dhoni-afp_806x605_41504452160.jpg";
+else if(player_data.Team_name=="Kolkata Knight Riders"){
+    img = "https://assets.telegraphindia.com/telegraph/2020/Oct/1604075251_ells7wixgakxzid.jpg";
 }
-else if(player_data.Team_name=="Netherlands"){
-    img = "https://img.cricketworld.com/images/f-057386/piet-2-zonder-logo.jpg";
+else if(player_data.Team_name=="Sunrisers Hyderabad"){
+    img = "https://cdn.insidesport.co/wp-content/uploads/2021/02/22175404/2021-02-22-1-1.jpg";
 }
-else if(player_data.Team_name=="New Zealand"){
-    img = "https://www.cricket.com.au/~/-/media/News/2021/04/01FinnAllen.ashx?w=1600";
+else if(player_data.Team_name=="Delhi Capitals"){
+    img = "https://images.financialexpress.com/2021/03/Rishabh-Pant-Delhi-Capitals-captain-IPL-2021.jpg";
 }
-else if(player_data.Team_name=="Pakistan"){
-    img = "https://resources.pulse.icc-cricket.com/ICC/photo/2019/10/03/3b70b19c-5ab6-4f61-bf04-c5f4e6deda45/GettyImages-1151926255.jpg";
+else if(player_data.Team_name=="Rajasthan Royals"){
+    img = "https://aniportalimages.s3.amazonaws.com/media/details/Samson_jan20_T48EEk7.jpg";
 }
-else if(player_data.Team_name=="South Africa"){
-    img = "https://st.adda247.com/https://wpassets.adda247.com/wp-content/uploads/multisite/sites/5/2020/07/11133518/gettyimages-1153214508-1559534800-1568x1052.jpg";
-}
-else if(player_data.Team_name=="Sri Lanka"){
-    img = "https://media.gettyimages.com/photos/shehan-jayasuriya-of-sri-lanka-reacts-after-being-bowled-during-game-picture-id1184813695?s=612x612"
-}
-else if(player_data.Team_name=="West Indies"){
-    img = "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202105/jasonholder_1200x768.png?9T2APWkYtqLK50vdTd03lL1rwtX099Wp&size=770:433";
-}
-else if(player_data.Team_name=="Zimbabwea"){
-    img = "https://s3-eu-west-2.amazonaws.com/newzimlive/wp-content/uploads/2021/02/10130640/Javeria-Khan.jpg";
+else if(player_data.Team_name=="Punjab Kings"){
+    img = "https://images.outlookindia.com/public/uploads/articles/2019/12/19/rahul_kxip_571_855.jpg"
 }
 
 var home = document.getElementById("player-info-root");
 var full_card = document.createElement("div");
 full_card.style.boxShadow = "0 6px 6px #ccc";
+full_card.style.backgroundColor = "#fff"
 full_card.style.borderRadius = "4%"
 full_card.style.display = "flex";
 full_card.style.width = "50%";
@@ -52,6 +44,7 @@ main_card.style.marginRight = "9%"
 var Team_image = document.createElement("img");
 Team_image.className="card-img-top"
 Team_image.alt="Image"
+Team_image.style.height = "45vh"
 Team_image.src=img;
 Team_image.style.width = "100%";
 Team_image.style.borderRadius = "4%"
